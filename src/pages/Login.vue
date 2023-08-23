@@ -13,7 +13,7 @@
                 <img src="/images/login/Login-bg-image-2.png" width="239" height="234" alt="">
               </div>
               <div class="card-body">
-                <form @submit.prevent="doLogin" >
+                <form @submit.prevent="doLogin">
                   <div class="card-header">
                     <h5 class="fw-bold mb-4 text-center">Traffic Data Analytic</h5>
 
@@ -30,12 +30,12 @@
                       <input type="password" class="form-control" id="input-password" v-model="user.password" />
                     </div>
 
-                      <button type="submit" class="btn-login">
-                          <v-icon name="fa-circle-notch" :scale="1.2" v-if="loading" animation="spin" />
-                        <template v-else>
-                          <span>Submit</span>
-                        </template>
-                      </button>
+                    <button type="submit" class="btn-login">
+                      <v-icon name="fa-circle-notch" :scale="1.2" v-if="loading" animation="spin" />
+                      <template v-else>
+                        <span>Submit</span>
+                      </template>
+                    </button>
                   </div>
                 </form>
               </div>
@@ -102,20 +102,23 @@ export default class LoginPage extends Vue {
 $color_1: rgba(47, 43, 61, 0.78);
 $color_2: rgba(47, 43, 61, 0.58);
 $color_3: #FFF;
-$background-color_1: rgb(248, 247, 250);
+$background-color_1: #f5f5f9;
 $background-color_2: #fff;
 $background-color_3: rgb(115, 103, 240);
 $background-color_4: rgb(104, 91, 241);
 
 .login {
   background-color: $background-color_1;
+
   .container {
     z-index: 2;
   }
+
   .form-control {
     color: $color_1 !important;
     background-color: $background-color_2;
     border: 1px solid rgb(168, 168, 168);
+
     &:focus {
       outline: none !important;
       border: 1px solid rgba(104, 91, 241, 0);
@@ -123,15 +126,18 @@ $background-color_4: rgb(104, 91, 241);
       box-shadow: rgba(104, 91, 241, 0.3) 0 0 0 3px;
     }
   }
+
   .card-login {
     box-shadow: 0 4px 18px rgba(47, 43, 61, .1), 0 0 transparent, 0 0 transparent;
     border: 0;
     max-width: 448px;
     margin: 0 auto 0 auto;
   }
+
   .card-body {
     padding: 16px;
   }
+
   .card-header {
     p {
       font-size: 15px;
@@ -139,10 +145,12 @@ $background-color_4: rgb(104, 91, 241);
       color: $color_2;
     }
   }
+
   .form-label {
     font-size: 13px;
     color: $color_2;
   }
+
   .btn-login {
     background-color: $background-color_3;
     color: $color_3;
@@ -154,13 +162,14 @@ $background-color_4: rgb(104, 91, 241);
     border-radius: 6px;
     width: 100%;
     height: 38px;
+
     &:hover {
       background-color: $background-color_4;
     }
   }
 }
 
-.shape-image{
+.shape-image {
   z-index: -2;
   position: absolute;
   block-size: 233px;
@@ -170,6 +179,7 @@ $background-color_4: rgb(104, 91, 241);
     inset-block-start: -77px;
     inset-inline-start: -40px;
   }
+
   &.shape-image-bottom {
     inset-block-end: -55px;
     inset-inline-end: -55px;
@@ -257,7 +267,4 @@ $background-color_4: rgb(104, 91, 241);
   block-size: 233px;
   inline-size: 238px;
 }
-*/
-
-
-</style>
+*/</style>
