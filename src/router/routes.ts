@@ -7,7 +7,8 @@ export default [
             breadcrumb: [
                 { name: 'Beranda', link: '/' },
             ]
-        }
+        },
+        props: true
     },
 
 ];

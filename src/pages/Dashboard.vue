@@ -7,9 +7,8 @@
             <div class="card-header">
               <h4 class="card-title mb-0">
                 Periode Data Traffic :
-                <span class=""> 1 Januari 2023 - 30 Juni 2023</span>
+                <span v-text="periode.startDate"></span> - <span v-text="periode.endDate"></span>
               </h4>
-
             </div>
           </div>
         </div>
@@ -21,14 +20,12 @@
               <h4 class="card-title ">
                 Kegiatan Kolaboratif
               </h4>
-
             </div>
             <div class="card-body px-4 pb-2 ">
               <div class="row d-flex ">
                 <div class="col-12 col-sm-6 col-md-4 mb-3 mb-md-4 order-sm-0">
                   <div class="d-flex align-items-center ">
                     <div class="icon-item me-2">
-
                       <img width="42" height="42" src="/images/icons/penindakan.png"
                            alt="penindakan" />
                     </div>
@@ -41,7 +38,6 @@
                 <div class="col-12 col-sm-6 col-md-4 mb-3 mb-md-4 order-sm-3 order-md-4">
                   <div class="d-flex align-items-center">
                     <div class="icon-item me-2">
-
                       <img width="42" height="42" src="/images/icons/peningkatan.png"
                            alt="penindakan" />
                     </div>
@@ -95,231 +91,6 @@
           </div>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col-12 col-xxl-5">
-          <div class="card border-0">
-            <div class="card-header">
-              <h5 class="card-title">
-                Keterangan Pajak Mati
-              </h5>
-            </div>
-            <div class="card-body">
-              <table-pajak :tableData="countPopulasiKendaraan" />
-<!--              <table class="table">-->
-<!--                <thead>-->
-<!--                <tr>-->
-<!--                  <th class="td-kendaraan">Kendaraan</th>-->
-<!--                  <th>Populasi</th>-->
-<!--                  <th>Pajak Mati</th>-->
-<!--                  <th>Potensi PAD</th>-->
-<!--                </tr>-->
-<!--                </thead>-->
-<!--                <tbody >-->
-<!--                <tr>-->
-<!--                  <td class="fw-medium td-kendaraan">-->
-<!--                    <div class="d-flex align-items-center py-2">-->
-<!--                      <div class="icon-item me-2">-->
-<!--                        <img width="38" height="38" src="/images/car-icons/car.png"-->
-<!--                             alt="penindakan" />-->
-<!--                      </div>-->
-<!--                      <div class="d-flex flex-column">-->
-<!--                        Mobil Pribadi-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </td>-->
-<!--                  <td> {{countPopulasiKendaraan.privateCar.toLocaleString('id-ID')}}</td>-->
-<!--                  <td>300,000</td>-->
-<!--                  <td>Belum Tersedia</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                  <td class="fw-medium td-kendaraan">-->
-<!--                    <div class="d-flex align-items-center py-2">-->
-<!--                      <div class="icon-item me-2">-->
-<!--                        <img width="38" height="38"-->
-<!--                             src="/images/car-icons/motorcycle.png" alt="penindakan" />-->
-<!--                      </div>-->
-<!--                      <div class="d-flex flex-column">-->
-<!--                        Sepeda Motor-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </td>-->
-<!--                  <td>{{countPopulasiKendaraan.motorcycle.toLocaleString('id-ID')}}</td>-->
-<!--                  <td>2,000,000</td>-->
-<!--                  <td>Belum Tersedia</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                  <td class="fw-medium td-kendaraan">-->
-<!--                    <div class="d-flex align-items-center py-2">-->
-<!--                      <div class="icon-item me-2">-->
-<!--                        <img width="38" height="38" src="/images/car-icons/bus.png"-->
-<!--                             alt="penindakan" />-->
-<!--                      </div>-->
-<!--                      <div class="d-flex flex-column">-->
-<!--                        BUS-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </td>-->
-<!--                  <td>{{countPopulasiKendaraan.bus.toLocaleString('id-ID')}}</td>-->
-<!--                  <td>2,000,000</td>-->
-<!--                  <td>Belum Tersedia</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                  <td class="fw-medium td-kendaraan">-->
-<!--                    <div class="d-flex align-items-center py-2">-->
-<!--                      <div class="icon-item me-2">-->
-<!--                        <img width="38" height="38" src="/images/car-icons/pickup.png"-->
-<!--                             alt="penindakan" />-->
-<!--                      </div>-->
-<!--                      <div class="d-flex flex-column">-->
-<!--                        Mobil Barang-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </td>-->
-<!--                  <td>{{countPopulasiKendaraan.transportCar.toLocaleString('id-ID')}}</td>-->
-<!--                  <td>2,000,000</td>-->
-<!--                  <td>Belum Tersedia</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                  <td class="fw-medium td-kendaraan">-->
-<!--                    <div class="d-flex align-items-center py-2">-->
-<!--                      <div class="icon-item me-2">-->
-<!--                        <img width="38" height="38" src="/images/car-icons/van.png"-->
-<!--                             alt="penindakan" />-->
-<!--                      </div>-->
-<!--                      <div class="d-flex flex-column">-->
-<!--                        Ransus-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </td>-->
-<!--                  <td>{{countPopulasiKendaraan.ransus.toLocaleString('id-ID')}}</td>-->
-<!--                  <td>2,000,000</td>-->
-<!--                  <td>Belum Tersedia</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                  <td class="fw-bold td-kendaraan">Total</td>-->
-<!--                  <td scope="row" colspan="2">{{countPopulasiKendaraan.total.toLocaleString('id-ID')}}</td>-->
-<!--                </tr>-->
-<!--                </tbody>-->
-<!--              </table>-->
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-xxl-7">
-          <div class="card border-0">
-            <div class="card-header">
-              <h5 class="card-title">
-                Keterangan Pajak Per Tahun
-              </h5>
-            </div>
-            <div class="card-body">
-              <table class="table">
-                <thead class="">
-                <tr>
-                  <th class="td-kendaraan">Kendaraan</th>
-                  <th>Populasi</th>
-                  <th>1 Tahun</th>
-                  <th>2-5 Tahun</th>
-                  <th>>5 Tahun</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td class="fw-medium td-kendaraan">
-                    <div class="d-flex align-items-center py-2">
-                      <div class="icon-item me-2">
-                        <img width="38" height="38" src="/images/car-icons/car.png"
-                             alt="penindakan" />
-                      </div>
-                      <div class="d-flex flex-column">
-                        Mobil Pribadi
-                      </div>
-                    </div>
-                  </td>
-                  <td>590,000</td>
-                  <td>300,000</td>
-                  <td>590,000</td>
-                  <td>300,000</td>
-                </tr>
-                <tr>
-                  <td class="fw-medium td-kendaraan">
-                    <div class="d-flex align-items-center py-2">
-                      <div class="icon-item me-2">
-                        <img width="38" height="38"
-                             src="/images/car-icons/motorcycle.png" alt="penindakan" />
-                      </div>
-                      <div class="d-flex flex-column">
-                        Sepeda Motor
-                      </div>
-                    </div>
-                  </td>
-                  <td>4,100,000</td>
-                  <td>2,000,000</td>
-                  <td>4,100,000</td>
-                  <td>2,000,000</td>
-                </tr>
-                <tr>
-                  <td class="fw-medium td-kendaraan">
-                    <div class="d-flex align-items-center py-2">
-                      <div class="icon-item me-2">
-                        <img width="38" height="38" src="/images/car-icons/bus.png"
-                             alt="penindakan" />
-                      </div>
-                      <div class="d-flex flex-column">
-                        BUS
-                      </div>
-                    </div>
-                  </td>
-                  <td>4,100,000</td>
-                  <td>2,000,000</td>
-                  <td>4,100,000</td>
-                  <td>2,000,000</td>
-                </tr>
-                <tr>
-                  <td class="fw-medium td-kendaraan">
-                    <div class="d-flex align-items-center py-2">
-                      <div class="icon-item me-2">
-                        <img width="38" height="38" src="/images/car-icons/pickup.png"
-                             alt="penindakan" />
-                      </div>
-                      <div class="d-flex flex-column">
-                        Mobil Barang
-                      </div>
-                    </div>
-                  </td>
-                  <td>4,100,000</td>
-                  <td>2,000,000</td>
-                  <td>4,100,000</td>
-                  <td>2,000,000</td>
-                </tr>
-                <tr>
-                  <td class="fw-medium td-kendaraan">
-                    <div class="d-flex align-items-center py-2">
-                      <div class="icon-item me-2">
-                        <img width="38" height="38" src="/images/car-icons/van.png"
-                             alt="penindakan" />
-                      </div>
-                      <div class="d-flex flex-column">
-                        Ransus
-                      </div>
-                    </div>
-                  </td>
-                  <td>4,100,000</td>
-                  <td>2,000,000</td>
-                  <td>4,100,000</td>
-                  <td>2,000,000</td>
-                </tr>
-                <tr>
-                  <td class="td-kendaraan fw-bold">Total</td>
-                  <td scope="row" class="" colspan="4  ">4,983,000</td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div class="row">
         <div class="col-12 col-xxl-5 ">
           <div class="card  border-0">
@@ -328,8 +99,8 @@
                 Populasi Kendaraan
               </h4>
             </div>
-            <div class="card-body pb-4">
-              <div v-if="chartOptsPopulasiKendaraan" class="mb-3">
+            <div class="card-body">
+              <div v-if="chartOptsPopulasiKendaraan">
                 <chart :options="chartOptsPopulasiKendaraan" />
               </div>
               <div class="d-flex flex-column align-items-center justify-center py-3" v-else>
@@ -343,6 +114,32 @@
         <div class="col-12 col-xxl-7">
           <div class="card border-0">
             <div class="card-header">
+              <h5 class="card-title">
+                Keterangan Pajak Mati
+              </h5>
+            </div>
+            <div class="card-body">
+              <table-pajak :tableData="dataCountPopulasiKendaraan" :dataColumn="dataCountPajakMati" :typeTable="'pajakMati'"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-xxl-6">
+          <div class="card border-0">
+            <div class="card-header">
+              <h5 class="card-title">
+                Keterangan Pajak Per Tahun
+              </h5>
+            </div>
+            <div class="card-body">
+              <table-pajak :tableData="dataTotalPopulasiPerTahun" :dataColumn="dataCountPopulasiPerTahun" :typeTable="'pajakPerTahun'"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-xxl-6">
+          <div class="card border-0">
+            <div class="card-header">
               <div class="row">
                 <div class="col-6 d-flex align-items-center">
                   <h5 class="card-title ">
@@ -350,7 +147,7 @@
                   </h5>
                 </div>
                 <div class="col-6">
-                  <h6 class="float-end" id="dataNowPajakHarian">Data Per 18 Agustus 2023</h6>
+                  <h6 class="float-end" id="dataNowPajakHarian">Data Per {{ dateNow }}</h6>
                 </div>
               </div>
             </div>
@@ -358,12 +155,12 @@
               <div class="gridtable">
                 <table class="table table-hover table-pajak-harian">
                   <thead>
-                    <tr>
-                      <th class="td-kendaraan">Titik Simpang</th>
-                      <th class="text-center">Pajak Mati</th>
-                      <th class="text-center">Perlintasan</th>
-                      <th class="text-center">Index</th>
-                    </tr>
+                  <tr>
+                    <th class="td-kendaraan">Titik Simpang</th>
+                    <th class="text-center">Pajak Mati</th>
+                    <th class="text-center">Perlintasan</th>
+                    <th class="text-center">Index</th>
+                  </tr>
                   </thead>
                   <tbody>
                   <tr v-for="(item,key) in countPajakHarian" :key="key">
@@ -384,18 +181,32 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Watch } from "vue-facing-decorator";
-import { Chart } from 'highcharts-vue'
-import axios, { AxiosResponse } from "axios";
+import {Component, Vue, Watch} from "vue-facing-decorator";
+import {Chart} from 'highcharts-vue'
+import axios, {AxiosResponse} from "axios";
 import dayjs from 'dayjs';
-
+import 'dayjs/locale/id'
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 import Constant from "../constant";
-import {Dict,ResponseDatasService, CountPajakHarian, CountPopulasiKendaraan} from '../interfaces'
+import {
+  CountPajakHarian,
+  CountPajakMati,
+  CountPopulasiKendaraan,
+  CountPopulasiPerTahun,
+  Dict,
+  ResponseDatasService
+} from '../interfaces'
 import TablePajak from "../components/TablePajak.vue";
+import CommonDatepicker from "../components/CommonDatepicker.vue"
+
+dayjs.extend(customParseFormat);
+
+
 @Component({
   components: {
     Chart,
-    TablePajak
+    TablePajak,
+    CommonDatepicker
   }
 })
 export default class Layout extends Vue {
@@ -404,92 +215,207 @@ export default class Layout extends Vue {
 
   loading: boolean = false;
 
+  updatePeriode: boolean = false
+
+  periode = { "endDate": '', "startDate": '' }
+
   countPajakHarian: CountPajakHarian[] = []
 
   countPopulasiKendaraan: CountPopulasiKendaraan[] = []
 
+  countPopulasiPerTahun: CountPopulasiPerTahun[] =[]
+
+  countPajakMati: CountPajakMati[] = []
+
+  dateNow: string = dayjs().locale('id').format(Constant.PREVIEW_FORMAT_DATE)
+
 
   routePath: string = "";
+
 
   @Watch('$route.query', { immediate: true })
   onHandleNavigationChange(value: Dict) {
     if (!this.routePath || this.routePath == this.$route.path) {
       this.routePath = this.$route.path;
-
       this.filter = this.resetFilter();
-      this.doFetchData();
+      this.periodeDate()
+      // this.doFetchData();
     }
   }
 
-  get countPopulasiKendaraanTotal(){
-    const { countPopulasiKendaraan } = this
 
-    let formattedData :any[]= [];
-
-    for (const key in countPopulasiKendaraan) {
-      formattedData[key] = countPopulasiKendaraan[key].toLocaleString('id-ID');
-    }
-
-    return formattedData
+  mounted(){
+    this.$emit("filter", this.filter);
+    this.$emit("updatePeriode", this.updatePeriode)
   }
 
   get chartOptsPopulasiKendaraan(){
-    const { countPopulasiKendaraan } = this
-
-
-
-
-    return this.getChartPopulasiKendaraan(countPopulasiKendaraan);
+    return this.getChartPopulasiKendaraan(this.dataCountPopulasiKendaraan);
   }
 
   get params() {
-    const { filter: { startTime, endTime } } = this;
-    return { startTime: startTime.getTime(), endTime: endTime.getTime() }
+    const { filter: { startDate, endDate } } = this;
+      return {startDate: this.setFormattedDate(startDate, Constant.PARSE_FORMAT_DATE), endDate: this.setFormattedDate(endDate, Constant.PARSE_FORMAT_DATE)}
+  }
+
+  periodeDate() {
+    let dateTemp: { endDate: string; startDate: string }
+
+      dateTemp = JSON.parse(JSON.stringify(this.filter))
+
+    this.periode = { startDate: this.setFormattedDate(dateTemp.startDate), endDate: this.setFormattedDate(dateTemp.endDate)}
+
+    this.doFetchData();
+
+  }
+
+  get dataCountPopulasiKendaraan(){
+    const { countPopulasiKendaraan } = this
+    const result :any = countPopulasiKendaraan.map((item) => {
+      const temp :any = {}
+      temp[item.name] = item.count;
+      return temp
+    })
+    const dataObject :any= result.reduce((obj :any, item :any) => {
+      const [key, value] = Object.entries(item)[0];
+      obj[key] = value;
+      return obj;
+    }, {} as any);
+
+    dataObject["TOTAL"] = Object.values(dataObject).reduce((acc :any, value: any) => acc + value, 0 as number);
+    return dataObject
+  }
+
+  get dataCountPajakMati(){
+    const { countPajakMati } = this
+    return countPajakMati
+  }
+
+  get dataCountKendaraanPertahun(){
+    const dataCount :any = this.countPopulasiPerTahun.map(item => ({
+      "lateYear": item.lateYear,
+      "vehicleTypes": item.vehicleTypes.reduce((acc:any, type:any) => {
+        acc[type.name] = type.count;
+        return acc;
+      }, {} as any)
+    }))
+    return dataCount
+  }
+
+  get dataCountPopulasiPerTahun() {
+    const { countPopulasiPerTahun } = this
+    if (countPopulasiPerTahun.length === 0){
+      return null
+    }
+    const dataCount :any = this.dataCountKendaraanPertahun
+    const lateYearsToMerge = [2, 3, 4, 5];
+    const mergedData :any = {
+      "lateYear": 5,
+      "vehicleTypes": {}
+    };
+    const newMergeData :any = this.mergeDataCountPopulation(lateYearsToMerge,mergedData, dataCount)
+    const filteredData: any = dataCount?.filter((entry :any) => [1, 6].includes(entry.lateYear));
+    filteredData.push(newMergeData)
+
+    return {
+      privateCar: this.dataPerTahunPerKendaraan(filteredData, "MOBIL PRIBADI"),
+      motorcycle: this.dataPerTahunPerKendaraan(filteredData, "SEPEDA MOTOR"),
+      bus: this.dataPerTahunPerKendaraan(filteredData, "BUS"),
+      transportCar: this.dataPerTahunPerKendaraan(filteredData, "MOBIL BARANG"),
+      ransus: this.dataPerTahunPerKendaraan(filteredData, "RANSUS")
+    }
+  }
+
+  get dataTotalPopulasiPerTahun(){
+    const inputData = this.dataCountKendaraanPertahun;
+    const lateYearsToMerge = [1,2, 3, 4, 5, 6];
+    const mergedData = {
+      "lateYear": 6,
+      "vehicleTypes": {}
+    };
+    const newMergedData :any = this.mergeDataCountPopulation(lateYearsToMerge,mergedData, inputData)
+    newMergedData.vehicleTypes["TOTAL"] = Object.values(newMergedData.vehicleTypes).reduce(
+        (acc :any, value: any) => acc + value, 0 as number);
+    return newMergedData.vehicleTypes
+  }
+
+  mergeDataCountPopulation(lateYearsToMerge: any, mergedData :any, inputData?: any){
+    for (const entry of inputData) {
+      if (lateYearsToMerge.includes(entry.lateYear)) {
+        const vehicleTypes = entry.vehicleTypes;
+        for (const [typeName, count] of Object.entries(vehicleTypes)) {
+          if (!mergedData.vehicleTypes[typeName]) {
+            mergedData.vehicleTypes[typeName] = count;
+          } else {
+            mergedData.vehicleTypes[typeName] += count;
+          }
+        }
+      }
+    }
+    return mergedData
+  }
+
+  dataPerTahunPerKendaraan(data :any = [], targetVehicleType =''){
+    const relevantLateYears = [1, 5, 6];
+    const countsArray = relevantLateYears.map(year => {
+      const entry = data.find((item :any) => item.lateYear === year);
+      const count = entry?.vehicleTypes[targetVehicleType] || 0;
+      return {
+        "lateYear": year,
+        "count": count
+      };
+    });
+    return countsArray
   }
 
   resetFilter(): Dict {
     return {
-      startTime: dayjs().subtract(1, "month").startOf("month").toDate(),
-      endTime: new Date(),
+      startDate: dayjs().subtract(1, "month").toDate(),
+      endDate: new Date(),
     }
   }
 
+  setFormattedDate(date: string, formatDate: string = 'D MMMM YYYY' ) {
+    dayjs.locale('id');
+    const parsedDate = dayjs(date, { utc: true });
+    return parsedDate.format(formatDate);
+  }
 
   async doFetchData() {
     this.loading = true
 
-    const [countPajakHarian, countPopulasiKendaraan] = await Promise.all([
-      this.fetchData(Constant.DASHBOARD_PAJAK_HARIAN_API, {}),
-      this.fetchData(Constant.DASHBOARD_POPULATIONS_API, {})
+    const [countPajakHarian, countPopulasiKendaraan, countPopulasiPerTahun, countPajakMati] = await Promise.all([
+      this.fetchData(Constant.DASHBOARD_PAJAK_HARIAN_API, {"start-date": this.params.startDate,"end-date": this.params.endDate}),
+      this.fetchData(Constant.DASHBOARD_POPULATIONS_API, {}),
+        this.fetchData(Constant.DASHBOARD_POPULATIONS_BY_YEAR_API),
+        this.fetchData(Constant.DASHBOARD_PAJAK_MATI_API)
     ]);
 
     this.countPajakHarian = countPajakHarian as CountPajakHarian[];
     this.countPopulasiKendaraan = countPopulasiKendaraan as CountPopulasiKendaraan[];
+    this.countPopulasiPerTahun = countPopulasiPerTahun as CountPopulasiPerTahun[];
+    this.countPajakMati = countPajakMati as CountPajakMati[];
 
     this.loading = false
   }
 
-
-  async fetchData(url: string, addParams?: Dict): Promise<CountPajakHarian[] | CountPopulasiKendaraan[]> {
-    const { params } = this
+  async fetchData(url: string, addParams?: Dict): Promise<CountPajakHarian[] | CountPopulasiKendaraan[] | CountPopulasiPerTahun[] | CountPajakMati[]> {
 
     try {
       const response = await axios.get<
           any,
-          AxiosResponse<ResponseDatasService<CountPajakHarian | CountPopulasiKendaraan>>
-      >(url, { params: { ...params, ...addParams } })
+          AxiosResponse<ResponseDatasService<CountPajakHarian | CountPopulasiKendaraan | CountPopulasiPerTahun | CountPajakMati>>
+      >(url, { params: { ...addParams } })
 
-
-      // return response.data.data as CountPajakHarian[]
-      return response.data.data as CountPajakHarian[] | CountPopulasiKendaraan[];
+      return response.data.data as CountPajakHarian[] | CountPopulasiKendaraan[] | CountPopulasiPerTahun[] | CountPajakMati[];
     } catch (e) {
       console.log(e)
     }
-
     return []
   }
 
-  getChartPopulasiKendaraan(data: CountPopulasiKendaraan){
+  getChartPopulasiKendaraan(data?:any){
+    const newData = JSON.parse(JSON.stringify(data))
     return {
       chart: {type: 'column'},
       title: {text: null},
@@ -500,7 +426,7 @@ export default class Layout extends Vue {
         lineWidth: 0
       },
       yAxis: {
-        title: {text: 'Populasi'},
+        title: {text: null},
         labels: {overflow: 'justify'},
         gridLineWidth: 1
       },
@@ -515,23 +441,23 @@ export default class Layout extends Vue {
       credits: {enabled: false},
       series: [{
         name: 'Mobil Pribadi',
-        data: [data?.privateCar],
+        data: [newData['MOBIL PRIBADI']],
         color: '#f37272'
       }, {
         name: 'Sepeda Motor',
-        data: [data?.motorcycle],
+        data: [newData['SEPEDA MOTOR']],
         color: '#887dfa'
       }, {
         name: 'Bus',
-        data: [data?.bus],
+        data: [newData['BUS']],
         color : '#7ce9f6'
       }, {
         name: 'Mobil Barang',
-        data: [data?.transportCar],
+        data: [newData['MOBIL BARANG']],
         color: '#fcbb7d'
       }, {
         name: 'Ransus',
-        data: [data?.ransus],
+        data: [newData['RANSUS']],
         color: '#70dea1'
       }]
     }

@@ -40,10 +40,16 @@ export default function setup() {
         };
     }, (error: AxiosError) => Promise.reject(error));
 
+
+
     axios.interceptors.response.use((response: AxiosResponse) => {
+
+
+
         if (response.config.method?.toUpperCase() !== 'GET') {
             const notifParam = getNotifParam(response)
             if (notifParam) AppConfig.getInstance().notify(notifParam)
+
         }
 
         return response

@@ -1,14 +1,21 @@
 import { App, ComponentPublicInstance, createApp } from 'vue';
 import Notifications from '@kyvg/vue3-notification';
 import VueRouter from 'vue-router';
-
 import { addIcons, OhVueIcon } from "oh-vue-icons";
 import {
-    FaCircleNotch
+    HiMenu, MdPermmediaOutlined, MdBookmarkadd,
+    RiSearchLine, RiCloseCircleLine, MdFormatalignright,
+    MdManagesearchOutlined, FaCircleNotch, CoSend,
+    FaRegularEye, FaPlus, FaMinus, FcOpenedFolder,
+    FaEdit, FaTrashAlt, MdSaveRound, BiBox,
+    MdKeyboardarrowleft, MdKeyboardarrowright,
+    MdArrowdropdown, MdArrowdropup, MdTimerOutlined,
+    HiSolidDotsHorizontal, MdBackhandOutlined,
+    MdDoneoutlineRound, MdCancelOutlined, MdPausecircleoutline,
+    BiArrowLeft, MdAreachartTwotone, HiClipboardList
 } from "oh-vue-icons/icons";
-
 import { formatDate } from './utils';
-import { capitalize, startCase} from 'lodash';
+import { capitalize, startCase } from 'lodash';
 
 import axiosInterceptor from "./utils/axios-interceptor";
 
@@ -48,9 +55,38 @@ export default class AppConfig {
         this.app.use(stores);
         this.app.use(Notifications);
 
-        // init vue icons
+        // init icon
+        addIcons(HiMenu);
+        addIcons(RiSearchLine);
+        addIcons(MdBookmarkadd);
+        addIcons(MdFormatalignright);
+        addIcons(RiCloseCircleLine);
+        addIcons(MdPermmediaOutlined);
+        addIcons(MdPermmediaOutlined);
+        addIcons(MdManagesearchOutlined);
+        addIcons(FaRegularEye);
+        addIcons(FaEdit);
         addIcons(FaCircleNotch);
-
+        addIcons(CoSend);
+        addIcons(FaPlus);
+        addIcons(FaMinus);
+        addIcons(FcOpenedFolder);
+        addIcons(FaTrashAlt);
+        addIcons(MdSaveRound);
+        addIcons(BiBox);
+        addIcons(MdKeyboardarrowleft);
+        addIcons(MdKeyboardarrowright);
+        addIcons(MdArrowdropdown);
+        addIcons(BiArrowLeft);
+        addIcons(MdAreachartTwotone);
+        addIcons(MdArrowdropup);
+        addIcons(MdTimerOutlined);
+        addIcons(HiSolidDotsHorizontal);
+        addIcons(MdBackhandOutlined);
+        addIcons(MdDoneoutlineRound);
+        addIcons(MdCancelOutlined);
+        addIcons(MdPausecircleoutline);
+        addIcons(HiClipboardList);
 
         axiosInterceptor();
     }
@@ -62,13 +98,12 @@ export default class AppConfig {
     }
 
     setFilters() {
-        axiosInterceptor();
         this.app.config.globalProperties.$filters = {formatDate, capitalize, startCase};
     }
 
     setGlobalComponents() {
-        this.app.component('v-icon', OhVueIcon);
 
+        this.app.component('v-icon', OhVueIcon);
     }
 
     mount(element: string) {

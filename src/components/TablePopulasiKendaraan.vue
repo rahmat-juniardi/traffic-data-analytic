@@ -1,16 +1,16 @@
 <template>
 
-  <table class="table">
+  <table class="table text-end">
     <thead>
-    <tr>
-      <th class="td-kendaraan">Kendaraan</th>
+    <tr class="height-60">
+      <th class="td-kendaraan text-start">Kendaraan</th>
       <th>Populasi</th>
-      <th v-for="(item, key,idx) in tableColumn" :key="key">
-        <span v-if="item.type == this.typeTable">{{ item.head}}</span>
-      </th>
+      <template v-for="(item, key,idx) in tableColumn" :key="key">
+        <th v-if="item.type === typeTable" >
+          {{ item.head}}
+        </th>
+      </template>
 
-<!--      <th>Pajak Mati</th>-->
-<!--      <th>Potensi PAD</th>-->
     </tr>
     </thead>
     <tbody >
@@ -26,9 +26,8 @@
           </div>
         </div>
       </td>
-      <td> {{formatedPopulasiKendaraan.privateCar}}</td>
-      <td>300,000</td>
-      <td>Belum Tersedia</td>
+      <td>{{formatedPopulasiKendaraan['MOBIL PRIBADI']}}</td>
+        <slot name="privateCar" ></slot>
     </tr>
     <tr>
       <td class="fw-medium td-kendaraan">
@@ -42,9 +41,8 @@
           </div>
         </div>
       </td>
-      <td>{{formatedPopulasiKendaraan.motorcycle}}</td>
-      <td>2,000,000</td>
-      <td>Belum Tersedia</td>
+      <td>{{formatedPopulasiKendaraan['SEPEDA MOTOR']}}</td>
+      <slot name="motorcycle"></slot>
     </tr>
     <tr>
       <td class="fw-medium td-kendaraan">
@@ -58,9 +56,8 @@
           </div>
         </div>
       </td>
-      <td>{{ formatedPopulasiKendaraan.bus }}</td>
-      <td>2,000,000</td>
-      <td>Belum Tersedia</td>
+      <td >{{formatedPopulasiKendaraan['BUS']}}</td>
+      <slot name="bus"></slot>
     </tr>
     <tr>
       <td class="fw-medium td-kendaraan">
@@ -74,9 +71,8 @@
           </div>
         </div>
       </td>
-      <td>{{formatedPopulasiKendaraan.transportCar}}</td>
-      <td>2,000,000</td>
-      <td>Belum Tersedia</td>
+      <td >{{formatedPopulasiKendaraan['MOBIL BARANG']}}</td>
+      <slot name="transportCar"></slot>
     </tr>
     <tr>
       <td class="fw-medium td-kendaraan">
@@ -90,13 +86,14 @@
           </div>
         </div>
       </td>
-      <td>{{formatedPopulasiKendaraan.ransus}}</td>
-      <td>2,000,000</td>
-      <td>Belum Tersedia</td>
+      <td >{{formatedPopulasiKendaraan['RANSUS']}}</td>
+
+      <slot name="ransus" :formatNumber="formatedPopulasiKendaraan"></slot>
     </tr>
-    <tr>
-      <td class="fw-bold td-kendaraan">Total</td>
-      <td scope="row" colspan="2">{{formatedPopulasiKendaraan.total}}</td>
+    <tr class="fw-bold height-60">
+      <td class="td-kendaraan text-start ">Total</td>
+      <td >{{formatedPopulasiKendaraan['TOTAL']}}</td>
+      <slot name="totalPAD"></slot>
     </tr>
     </tbody>
   </table>
@@ -112,19 +109,18 @@
     export default class TablePopulasiKendaraan extends Vue{
 
         @Prop({default: ()=> {}})
-        tableData!: CountPopulasiKendaraan;
+        tableData?: any;
 
         @Prop({default: ()=> {}})
         tableColumn? :any;
 
       @Prop({default: ''})
-      typeTable: string
+      typeTable?: string;
 
         get formatedPopulasiKendaraan(){
           const {tableData} = this
 
           let formattedData :any = {};
-
           for (const key in tableData) {
             formattedData[key] = tableData[key].toLocaleString(Constant.NUMBER_FORMAT);
           }
@@ -133,3 +129,9 @@
 
     }
 </script>
+
+<style lang="scss">
+.height-60{
+  height: 60px;
+}
+</style>

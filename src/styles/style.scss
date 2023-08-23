@@ -304,7 +304,7 @@ nav.navbar.collapsed {
 .table td {
   vertical-align: middle;
   height: 48px;
-  padding: 0 16px
+  padding: 0 24px 0px 0px;
 }
 
 .table thead {
@@ -375,11 +375,11 @@ nav.navbar.collapsed {
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
 
+
+
 .modal-content-custom {
-
-
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;

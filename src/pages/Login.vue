@@ -75,19 +75,18 @@ export default class LoginPage extends Vue {
 
     try {
       this.loading = true;
-      // const response = await axios.post(Constant.LOGIN_API, this.user);
-      // if (response.data.data) {
-      //   this.$store.commit("setLoginSucceed", response.data.data);
-      //   return
-      // }
-
-      const response = await axios.get(Constant.LOGIN_API);
+      const response = await axios.post(Constant.LOGIN_API, this.user);
+      console.log(response)
       if (response.data.data) {
         this.$store.commit("setLoginSucceed", response.data.data);
         return
       }
 
-      //
+      // const response = await axios.get(Constant.LOGIN_API);
+      // if (response.data.data) {
+      //   this.$store.commit("setLoginSucceed", response.data.data);
+      //   return
+      // }
 
     } catch (e) {
       console.log(e);

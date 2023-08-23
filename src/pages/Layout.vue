@@ -67,6 +67,7 @@
           </svg>
           </button>
           <span class="pe-auto fw-normal" id="">Cari Periode</span>
+
           </div>
 
           <div class="modal-custom " :class="showModal ? 'show-modal-custom' : ''" @click="windowOnClick($event)">
@@ -85,50 +86,22 @@
                 </div>
               </div>
               <div class="modal-body-custom">
-                <p class="mb-3">Mulai dari :</p>
-                <div class="d-flex justify-content-center mb-4">
-                  <select class="form-select me-3" aria-label="Default select example"
-                          style="width: 120px;">
-                    <option selected>Januari</option>
-                    <option value="1">Februari</option>
-                    <option value="2">Maret</option>
-                    <option value="3">April</option>
-                    <option value="1">Mei</option>
-                    <option value="2">Juni</option>
-                    <option value="3">Juli</option>
-                    <option value="3">Agustus</option>
-                    <option value="1">September</option>
-                    <option value="2">Oktober</option>
-                    <option value="3">November</option>
-                    <option value="3">Desember</option>
-                  </select>
-
-                  <select class="form-select" aria-label="Default select example"
-                          style="width: 120px;">
-                    <option selected>2023</option>
-                    <option value="1">2022</option>
-                    <option value="2">2021</option>
-                    <option value="3">2020</option>
-                  </select>
+                <div class="row">
+                  <div class="col-6">
+                    <p >Mulai dari :</p>
+                    <common-datepicker required v-model:value="filterData.startDate" :datePicker="true" :max-date="new Date()" />
+                  </div>
+                  <div class="col-6">
+                    <p>Sampai :</p>
+                    <common-datepicker required v-model:value="filterData.endDate" :datePicker="true" :max-date="new Date()" />
+                  </div>
                 </div>
-                <p class="mb-3">Sampai :</p>
-                <div class="d-flex justify-content-center">
-                  <select class="form-select me-3" aria-label="Default select example"
-                          style="width: 120px;">
-                    <option selected>Januari</option>
-                    <option value="1">Februari</option>
-                    <option value="2">Maret</option>
-                    <option value="3">April</option>
-                  </select>
-
-                  <select class="form-select" aria-label="Default select example"
-                          style="width: 120px;">
-                    <option selected>2023</option>
-                    <option value="1">2022</option>
-                    <option value="2">2021</option>
-                    <option value="3">2020</option>
-                  </select>
+                <div class="row">
+                  <div class="col">
+                    <button class="float-end btn-ubah-periode"  @click="updatePeriode">Update Periode</button>
+                  </div>
                 </div>
+
               </div>
             </div>
           </div>
@@ -198,7 +171,10 @@
       </nav>
 
       <!-- ========= Main content section of dashboard ======= -->
-      <router-view/>
+<!--      <router-view   @filter="onFilter" @updatePeriode="onUpdateDate"  ref="filterDate" />-->
+      <router-view @filter="onFilter" v-slot="{ Component }">
+        <component ref="view" :is="Component" />
+      </router-view>
 
 
     </div>
@@ -206,12 +182,36 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-facing-decorator";
-@Component
+import {ref} from "vue";
+import {Component, Prop, Vue, Watch} from "vue-facing-decorator";
+
+import CommonDatepicker from "../components/CommonDatepicker.vue"
+import {Dict} from "../interfaces";
+import dayjs from "dayjs";
+import Constant from "../constant";
+
+@Component({
+  components: {
+    CommonDatepicker
+  }
+})
 export default class Layout extends Vue {
 
   extendSidebar:boolean = false
   showModal: boolean = false
+
+  filterData: Dict = [];
+
+
+  onFilter(param: Dict) {
+    this.filterData = param
+
+  }
+
+  updatePeriode(){
+    this.$refs.view.periodeDate();
+    this.toggleModal();
+  }
 
   doLogOut() {
     this.$store.commit("setLoggedOut");
@@ -224,7 +224,6 @@ export default class Layout extends Vue {
 
   sidebarToggle(){
     this.extendSidebar = !this.extendSidebar;
-    console.log(this.extendSidebar)
   }
 
   toggleModal() {
@@ -237,5 +236,21 @@ export default class Layout extends Vue {
 <style>
 .btn-filter{
   cursor: pointer;
+}
+
+.btn-ubah-periode {
+  border: 0px;
+  border-radius: 5px;
+  background-color: rgb(115, 103, 240);
+  color: #fff;
+  padding: 8px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 24px;
+}
+
+.btn-ubah-periode:hover {
+  color: #FFF;
+  background-color: rgb(123, 112, 243)
 }
 </style>
